@@ -1,0 +1,18 @@
+{
+  "id": 332233,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "puppy",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "Bert Lan Caster"
+    }
+  ],
+  "status": "sold"
+}
