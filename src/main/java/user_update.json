@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "name": "Valerro",
+  "username": "Val",
+  "email": "sanfrancisco@city.in.style.disco",
+  "address": {
+    "street": "Tsentralny av.",
+    "suite": "Apt. 556",
+    "city": "Mukolayv",
+    "zipcode": "54000",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "322-223",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+}
