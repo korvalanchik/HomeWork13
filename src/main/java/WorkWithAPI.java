@@ -8,7 +8,6 @@ public class WorkWithAPI {
     private static final String TEST_URL =
             "https://jsonplaceholder.typicode.com/users";
 
-
     static void sendGET() throws IOException {
         URL url = new URL(TEST_URL);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -21,7 +20,7 @@ public class WorkWithAPI {
                     new BufferedReader(
                             new InputStreamReader(connection.getInputStream()));
             String inputLine;
-            StringBuffer response = new StringBuffer();
+            StringBuilder response = new StringBuilder();
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
@@ -31,19 +30,19 @@ public class WorkWithAPI {
             System.out.println("GET request not worked");
         }
     }
-    static void sendGETbyId() throws IOException {
-        URL url = new URL(TEST_URL+"/2");
+    static void sendGETbyId(int numUser) throws IOException {
+        URL url = new URL(TEST_URL+"/" + numUser);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Content-Type", "application/json");
         int responseCode = connection.getResponseCode();
-        System.out.println("GET by Id response code: " + responseCode);
+        System.out.println("GET by Id " + numUser + " response code: " + responseCode);
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader in =
                     new BufferedReader(
                             new InputStreamReader(connection.getInputStream()));
             String inputLine;
-            StringBuffer response = new StringBuffer();
+            StringBuilder response = new StringBuilder();
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
@@ -66,7 +65,7 @@ public class WorkWithAPI {
                     new BufferedReader(
                             new InputStreamReader(connection.getInputStream()));
             String inputLine;
-            StringBuffer response = new StringBuffer();
+            StringBuilder response = new StringBuilder();
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
@@ -84,7 +83,9 @@ public class WorkWithAPI {
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setDoOutput(true);
         OutputStream os = connection.getOutputStream();
-        Path f = new File("D:\\JavaProjects\\HomeWork13\\src\\main\\java\\user_new.json").toPath();
+
+        String userDirectory = new File("").getAbsolutePath();
+        Path f = new File(userDirectory +"\\src\\main\\resources\\user_new.json").toPath();
 //        System.out.println(f.toString());
         os.write(Files.readAllBytes(f));
         os.flush();
@@ -96,7 +97,7 @@ public class WorkWithAPI {
             BufferedReader in =
                     new BufferedReader(
                             new InputStreamReader(connection.getInputStream()));
-            StringBuffer response = new StringBuffer();
+            StringBuilder response = new StringBuilder();
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
@@ -114,8 +115,8 @@ public class WorkWithAPI {
         connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
         connection.setDoOutput(true);
         OutputStream os = connection.getOutputStream();
-        Path f = new File("D:\\JavaProjects\\HomeWork13\\src\\main\\java\\user_update.json").toPath();
-//        System.out.println(f.toString());
+        String userDirectory = new File("").getAbsolutePath();
+        Path f = new File(userDirectory +"\\src\\main\\resources\\user_update.json").toPath();
         os.write(Files.readAllBytes(f));
         os.flush();
         os.close();
@@ -126,7 +127,7 @@ public class WorkWithAPI {
             BufferedReader in =
                     new BufferedReader(
                             new InputStreamReader(connection.getInputStream()));
-            StringBuffer response = new StringBuffer();
+            StringBuilder response = new StringBuilder();
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
